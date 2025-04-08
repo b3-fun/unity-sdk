@@ -7,6 +7,9 @@ The all-in-one package that takes your Unity games to the next level with baseme
 ## How to install
 - Download ``b3-unity-sdk.unitypackage`` from this repository.
 - Open Unity and install the package either through package manager, or by double clicking the .unitypackage file and importing all the assets.
+- For WebGL, the webgl template for B3 must be used IF webhook or window message APIs are used:
+  - Open the player settings, and select the template ![image](https://github.com/user-attachments/assets/3ae811fd-ebff-43d7-b9af-691d159a709d)
+
 
 ## Features
 - Automatic management of basement user session and handling of auth token.
