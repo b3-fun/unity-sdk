@@ -11,9 +11,6 @@ The all-in-one package that takes your Unity games to the next level with baseme
 - For WebGL, the webgl template for B3 must be used IF webhook or window message APIs are used:
   - Open the player settings, and select the template 
 ![image](https://github.com/user-attachments/assets/3ae811fd-ebff-43d7-b9af-691d159a709d)
-- Install NewtonSoft JSON
-  - Can import from package manager, click the plus icon on top left and select from git url, then use ``com.unity.nuget.newtonsoft-json`` 
-![image](https://github.com/user-attachments/assets/6f29f4d5-f357-4e25-9853-daad07a79485)
 
 ## Features
 - Automatic management of basement user session and handling of auth token.
@@ -25,16 +22,14 @@ The all-in-one package that takes your Unity games to the next level with baseme
   - Webhook support
     - Webhooks in WebGL using window message API
     - Webhooks natively, via deep links (WIP)
+- B3 Global Accounts
+  - Access to B3 Ecosystem Wallet via ThirdWeb SDK
 
 # How to Use
 
 ## Setup
-- In your first scene, create an empty GameObject, and add the B3 Instance component. This component handles managing the game session and JWT token for the B3 launcher APIs.
-
-![image](https://github.com/user-attachments/assets/3c92a1d3-7553-4e0f-8db0-701f7442e8ae)
-- On your project window, create your B3 config file with right click > Create > B3 > B3 Config, then feel in any details, and drag and drop or select the object you made in the B3 Instance component on scene.
-![image](https://github.com/user-attachments/assets/bde0f1fd-0a94-4e26-b2a5-ca03906ae281)
-![image](https://github.com/user-attachments/assets/fd9bddd0-7693-49ee-97a6-d8ac56d2fafb)
+- In your first scene, drag and drop the B3Instance prefab from the ``b3-sdk/Prefabs`` folder.
+- On the B3Instance GameObject, click on the B3 Config asset, select and, and fill in any details.
 
 ## Session Management
 In order to call the B3 Launcher APIs for the user currently playing the game, a JWT token is needed for authentication.
@@ -92,4 +87,7 @@ B3LauncherClient.TriggerRulesEngine(new B3LauncherClient.TriggerRulesEngineBody
 ```
 Of course the recommended approach is the messaging API (first example), while the second is more optimized for future usecases where there might be needed a more advanced UX.
 
-
+## Using B3 Ecosystem Wallet
+- To use the B3 ecosystem wallet, you must first obtain your partner ID, and enter it on the B3 Config.
+- You can then call ``B3EcosystemWallet.Instance.LoginViaMethod()``, with a provided authProvider, which will begin the necessary flow to log in your user with ThirdWeb.
+- You can access the signed in ecosystem wallet via ``B3EcosystemWallet.Instance.EcosystemWallet``, which can be used with thirdweb APIs
