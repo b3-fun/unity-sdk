@@ -89,5 +89,6 @@ Of course the recommended approach is the messaging API (first example), while t
 
 ## Using B3 Ecosystem Wallet
 - To use the B3 ecosystem wallet, you must first obtain your partner ID, and enter it on the B3 Config.
+- Additionally you must get your client Id and bundle ID from the thirdweb dashboard and fill the details in the thirdweb manager component
 - You can then call ``B3EcosystemWallet.Instance.LoginViaMethod()``, with a provided authProvider, which will begin the necessary flow to log in your user with ThirdWeb.
 - You can access the signed in ecosystem wallet via ``B3EcosystemWallet.Instance.EcosystemWallet``, which can be used with thirdweb APIs
